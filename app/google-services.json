@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1033683744045",
+    "firebase_url": "https://matka-a96b7.firebaseio.com",
+    "project_id": "matka-a96b7",
+    "storage_bucket": "matka-a96b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033683744045:android:9ed7f9888efb70e2",
+        "android_client_info": {
+          "package_name": "com.example.suryasolanki.matka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033683744045-930l1a89eca9bvsuq30cdbpjnci3pkhv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoDnDwztTJ6DCg9UH2830-ZP0d9wfRebE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
