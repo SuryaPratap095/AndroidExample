@@ -24,7 +24,7 @@
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:id="@+id/dropdownImage"
+            android:id="@+id/dropdownIcon"
             android:src="@mipmap/ic_launcher"/>
 
     </LinearLayout>
