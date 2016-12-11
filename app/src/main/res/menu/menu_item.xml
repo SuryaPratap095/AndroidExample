@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/Bid_Value_1"
+        android:orderInCategory="100"
+        android:title="Value 1" />
+
+    <item
+        android:id="@+id/Bid_value_2"
+        android:orderInCategory="101"
+        android:title="Value 2" />
+
+</menu>

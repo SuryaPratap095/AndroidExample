@@ -1,15 +1,26 @@
 package com.example.suryasolanki.matka;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
+import android.support.v7.view.menu.MenuView;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
+
+import static com.example.suryasolanki.matka.R.id.coordinatorLayout;
 
 /**
  * Created by surya.solanki on 10-12-2016.
@@ -19,16 +30,20 @@ public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapte
 
     private Context context;
     private List<BidData> bidDataList;
+    private PopupMenu popupMenu;
+   // private CoordinatorLayout coordinatorLayout;
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
         public TextView bidText;
         public ImageView thumbNail;
+        public CoordinatorLayout coordinatorLayout;
 
         public MyViewHolder(View view) {
             super(view);
             bidText=(TextView) view.findViewById(R.id.itemName);
             thumbNail=(ImageView) view.findViewById(R.id.dropdownIcon);
+            coordinatorLayout=(CoordinatorLayout)view.findViewById(R.id.coordinatorLayout);
         }
 
     }
@@ -59,10 +74,79 @@ public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapte
 
     @Override
     public int getItemCount() {
-        return 0;
+        return bidDataList.size();
     }
 
     public void showPopMenu(View view){
 
+
+        Toast.makeText(context,"Item Clicked ",Toast.LENGTH_SHORT).show();
+        popupMenu=new PopupMenu(context,view);
+        MenuInflater menuInflater=popupMenu.getMenuInflater();
+        menuInflater.inflate(R.menu.menu_item,popupMenu.getMenu());
+        CustomizedMenuClickListner menuClickListen=new CustomizedMenuClickListner();
+        menuClickListen.setView(view);
+        popupMenu.setOnMenuItemClickListener(menuClickListen);
+        popupMenu.show();
+
+    }
+
+    class CustomizedMenuClickListner implements PopupMenu.OnMenuItemClickListener{
+
+        public View view;
+//        private View view;
+//        public CustomizedMenuClickListner(){
+//        }
+//        MenuView view=context;
+
+
+//        public View getView() {
+//            return view;
+//        }
+
+
+        public void setView(View view) {
+            this.view = view;
+        }
+
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            //View view= (View) Menu.;
+            Snackbar snackbar;
+
+            switch (item.getItemId()){
+                case R.id.Bid_Value_1: {
+                    snackbar = Snackbar.make(view, "Add to favorite \n favorite", Snackbar.LENGTH_LONG)
+                            .setAction("Bid", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Toast.makeText(context, "Value Selected", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                    View snaView = snackbar.getView();
+                    TextView txtView = (TextView) snaView.findViewById(android.support.design.R.id.snackbar_text);
+                    txtView.setMaxLines(5);
+                    snackbar.show();
+                    return true;
+                }
+                case R.id.Bid_value_2:{
+                    snackbar = Snackbar.make(view, "Add to favorite \n favorite", Snackbar.LENGTH_LONG)
+                            .setAction("Bid", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Toast.makeText(context, "Value Selected", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                    View snaView = snackbar.getView();
+                    TextView txtView = (TextView) snaView.findViewById(android.support.design.R.id.snackbar_text);
+                    txtView.setMaxLines(5);
+                    snackbar.show();
+                    return true;
+                }
+                    default:
+            }
+
+            return false;
+        }
     }
 }
