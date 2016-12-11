@@ -53,7 +53,5 @@ public class HomeActivity extends AppCompatActivity {
 
         recylcerViewAdapter.notifyDataSetChanged();
 
-
-
     }
 }
