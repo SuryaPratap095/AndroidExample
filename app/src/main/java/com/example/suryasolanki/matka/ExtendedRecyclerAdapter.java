@@ -48,7 +48,6 @@ public class ExtendedRecyclerAdapter extends RecyclerView.Adapter<ExtendedRecycl
     public void onBindViewHolder(ExtendedRecyclerAdapter.ExtendedViewHolder holder, int position) {
 
     }
-
     @Override
     public int getItemCount() {
         return 0;
