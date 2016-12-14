@@ -20,15 +20,15 @@ public class ExtendedRecyclerAdapter extends RecyclerView.Adapter<ExtendedRecycl
     private PopupMenu popupMenu;
     private List<BidData> bidDataList;
 
-    public class ExtendedViewHolder extends RecyclerView.ViewHolder{
+    public class ExtendedViewHolder extends RecyclerView.ViewHolder {
 
         public TextView bidText;
         public ImageView thumbNail;
 
         public ExtendedViewHolder(View view) {
             super(view);
-            bidText=(TextView) view.findViewById(R.id.itemName);
-            thumbNail=(ImageView) view.findViewById(R.id.dropdownIcon);
+            bidText = (TextView) view.findViewById(R.id.itemName);
+            thumbNail = (ImageView) view.findViewById(R.id.dropdownIcon);
         }
     }
 
@@ -39,8 +39,8 @@ public class ExtendedRecyclerAdapter extends RecyclerView.Adapter<ExtendedRecycl
 
     @Override
     public ExtendedRecyclerAdapter.ExtendedViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context=parent.getContext();
-        float dp=context.getResources().getDisplayMetrics().density;
+        Context context = parent.getContext();
+        float dp = context.getResources().getDisplayMetrics().density;
         return null;
     }
 
@@ -48,6 +48,7 @@ public class ExtendedRecyclerAdapter extends RecyclerView.Adapter<ExtendedRecycl
     public void onBindViewHolder(ExtendedRecyclerAdapter.ExtendedViewHolder holder, int position) {
 
     }
+
     @Override
     public int getItemCount() {
         return 0;
