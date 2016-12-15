@@ -26,14 +26,14 @@ import static com.example.suryasolanki.matka.R.id.coordinatorLayout;
  * Created by surya.solanki on 10-12-2016.
  */
 
-public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapter.MyViewHolder>{
+public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapter.MyViewHolder> {
 
     private Context context;
     private List<BidData> bidDataList;
     private PopupMenu popupMenu;
-   // private CoordinatorLayout coordinatorLayout;
+    // private CoordinatorLayout coordinatorLayout;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
         public TextView bidText;
         public ImageView thumbNail;
@@ -41,28 +41,28 @@ public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapte
 
         public MyViewHolder(View view) {
             super(view);
-            bidText=(TextView) view.findViewById(R.id.itemName);
-            thumbNail=(ImageView) view.findViewById(R.id.dropdownIcon);
-            coordinatorLayout=(CoordinatorLayout)view.findViewById(R.id.coordinatorLayout);
+            bidText = (TextView) view.findViewById(R.id.itemName);
+            thumbNail = (ImageView) view.findViewById(R.id.dropdownIcon);
+            coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.coordinatorLayout);
         }
 
     }
 
-    public RecylcerViewAdapter(Context context,List<BidData> bidDataList){
-        this.context=context;
-        this.bidDataList=bidDataList;
+    public RecylcerViewAdapter(Context context, List<BidData> bidDataList) {
+        this.context = context;
+        this.bidDataList = bidDataList;
     }
 
     @Override
     public RecylcerViewAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView= LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view, parent, false);
 
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(final RecylcerViewAdapter.MyViewHolder holder, int position) {
-        BidData bidData=bidDataList.get(position);
+        BidData bidData = bidDataList.get(position);
         holder.bidText.setText(bidData.getBidValue());
         holder.thumbNail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,33 +77,23 @@ public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapte
         return bidDataList.size();
     }
 
-    public void showPopMenu(View view){
+    public void showPopMenu(View view) {
 
 
-        Toast.makeText(context,"Item Clicked ",Toast.LENGTH_SHORT).show();
-        popupMenu=new PopupMenu(context,view);
-        MenuInflater menuInflater=popupMenu.getMenuInflater();
-        menuInflater.inflate(R.menu.menu_item,popupMenu.getMenu());
-        CustomizedMenuClickListner menuClickListen=new CustomizedMenuClickListner();
+        Toast.makeText(context, "Item Clicked ", Toast.LENGTH_SHORT).show();
+        popupMenu = new PopupMenu(context, view);
+        MenuInflater menuInflater = popupMenu.getMenuInflater();
+        menuInflater.inflate(R.menu.menu_item, popupMenu.getMenu());
+        CustomizedMenuClickListner menuClickListen = new CustomizedMenuClickListner();
         menuClickListen.setView(view);
         popupMenu.setOnMenuItemClickListener(menuClickListen);
         popupMenu.show();
 
     }
 
-    class CustomizedMenuClickListner implements PopupMenu.OnMenuItemClickListener{
+    class CustomizedMenuClickListner implements PopupMenu.OnMenuItemClickListener {
 
         public View view;
-//        private View view;
-//        public CustomizedMenuClickListner(){
-//        }
-//        MenuView view=context;
-
-
-//        public View getView() {
-//            return view;
-//        }
-
 
         public void setView(View view) {
             this.view = view;
@@ -114,7 +104,7 @@ public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapte
             //View view= (View) Menu.;
             Snackbar snackbar;
 
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.Bid_Value_1: {
                     snackbar = Snackbar.make(view, "Add to favorite \n favorite", Snackbar.LENGTH_LONG)
                             .setAction("Bid", new View.OnClickListener() {
@@ -129,7 +119,7 @@ public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapte
                     snackbar.show();
                     return true;
                 }
-                case R.id.Bid_value_2:{
+                case R.id.Bid_value_2: {
                     snackbar = Snackbar.make(view, "Add to favorite \n favorite", Snackbar.LENGTH_LONG)
                             .setAction("Bid", new View.OnClickListener() {
                                 @Override
@@ -143,7 +133,7 @@ public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapte
                     snackbar.show();
                     return true;
                 }
-                    default:
+                default:
             }
 
             return false;

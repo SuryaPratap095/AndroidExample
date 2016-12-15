@@ -9,12 +9,29 @@ public class BidData {
     private String bidValue;
     private int thumbNail;
 
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    private int type;
+
     public BidData() {
     }
 
     public BidData(String bidValue, int thumbNail) {
         this.bidValue = bidValue;
         this.thumbNail = thumbNail;
+    }
+
+    public BidData(String bidValue, int thumbNail, int type) {
+        this.bidValue = bidValue;
+        this.thumbNail = thumbNail;
+        this.type = type;
     }
 
     public String getBidValue() {
