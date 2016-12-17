@@ -28,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_gravity="end"
             android:id="@+id/dropdownIcon"
+            android:layout_weight="0"
             android:layout_alignParentRight="true"
             android:src="@mipmap/ic_launcher"/>
     </LinearLayout>
