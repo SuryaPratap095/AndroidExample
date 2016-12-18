@@ -1,6 +1,5 @@
-package com.example.suryasolanki.matka;
+package com.example.suryasolanki.matka.Adapters;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
@@ -10,13 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.actions.ItemListIntents;
+import com.example.suryasolanki.matka.Java.BidData;
+import com.example.suryasolanki.matka.R;
 
 import java.util.List;
 
-import static android.R.attr.data;
-import static com.example.suryasolanki.matka.ExtendedRecyclerAdapter.ExtendedViewHolder.CHILD;
-import static com.example.suryasolanki.matka.ExtendedRecyclerAdapter.ExtendedViewHolder.HEADER;
+import static com.example.suryasolanki.matka.Adapters.ExtendedRecyclerAdapter.ExtendedViewHolder.CHILD;
+import static com.example.suryasolanki.matka.Adapters.ExtendedRecyclerAdapter.ExtendedViewHolder.HEADER;
 
 /**
  * Created by surya.solanki on 12-12-2016.

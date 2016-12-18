@@ -1,4 +1,4 @@
-package com.example.suryasolanki.matka;
+package com.example.suryasolanki.matka.Java;
 
 /**
  * Created by surya.solanki on 10-12-2016.

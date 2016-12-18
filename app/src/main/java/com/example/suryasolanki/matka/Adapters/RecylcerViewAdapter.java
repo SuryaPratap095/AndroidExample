@@ -1,15 +1,12 @@
-package com.example.suryasolanki.matka;
+package com.example.suryasolanki.matka.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,9 +15,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
+import com.example.suryasolanki.matka.Java.BidData;
+import com.example.suryasolanki.matka.R;
+import com.example.suryasolanki.matka.Tabs.Tabbed;
 
-import static com.example.suryasolanki.matka.R.id.coordinatorLayout;
+import java.util.List;
 
 /**
  * Created by surya.solanki on 10-12-2016.
@@ -38,12 +37,22 @@ public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapte
         public TextView bidText;
         public ImageView thumbNail;
         public CoordinatorLayout coordinatorLayout;
+        public Context context;
 
         public MyViewHolder(View view) {
             super(view);
+            context=view.getContext();
             bidText = (TextView) view.findViewById(R.id.itemName);
             thumbNail = (ImageView) view.findViewById(R.id.dropdownIcon);
             coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.coordinatorLayout);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent(context,Tabbed.class);
+                    context.startActivity(intent);
+
+                }
+            });
         }
 
     }
@@ -68,6 +77,7 @@ public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapte
             @Override
             public void onClick(View view) {
                 showPopMenu(holder.thumbNail);
+                //Intent intent=new Intent()
             }
         });
     }

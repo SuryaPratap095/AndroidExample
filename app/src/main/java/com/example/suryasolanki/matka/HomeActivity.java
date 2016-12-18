@@ -6,6 +6,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.suryasolanki.matka.Adapters.RecylcerViewAdapter;
+import com.example.suryasolanki.matka.Java.BidData;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.suryasolanki.matka;
+package com.example.suryasolanki.matka.Adapters;
 
 import android.content.Context;
 import android.support.design.widget.Snackbar;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.suryasolanki.matka.R;
 
 import java.util.ArrayList;
 import java.util.List;
