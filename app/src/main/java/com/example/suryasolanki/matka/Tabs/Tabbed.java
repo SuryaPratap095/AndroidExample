@@ -1,6 +1,8 @@
 package com.example.suryasolanki.matka.Tabs;
 
+import android.content.Context;
 import android.support.design.widget.TabLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -15,9 +17,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import com.example.suryasolanki.matka.Adapters.ExpandableListViewAdapter;
 import com.example.suryasolanki.matka.R;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Tabbed extends AppCompatActivity {
 
@@ -85,13 +93,23 @@ public class Tabbed extends AppCompatActivity {
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
+
+        ExpandableListView expandableListView;
+        ExpandableListViewAdapter expandableListViewAdapter;
+        List<String> listDataHeader;
+        HashMap<String,List<String>> listDataChild;
+        private Context context;
+
+
+
+
+
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+
+
         public PlaceholderFragment() {
+                context=this.getContext();
         }
 
         /**
@@ -110,10 +128,46 @@ public class Tabbed extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_tabbed, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-       //     textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            textView.setText("Tab 1");
+            expandableListView=(ExpandableListView) rootView.findViewById(R.id.expndListViewTab1);
+
+            prepareListData();
+            expandableListViewAdapter=new ExpandableListViewAdapter(getActivity(),listDataHeader,listDataChild);
+            expandableListView.setAdapter(expandableListViewAdapter);
+//            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+//       //     textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+//            textView.setText("Tab 1");
             return rootView;
+        }
+
+        public void prepareListData(){
+            listDataHeader=new ArrayList<String>();
+            listDataChild=new HashMap<String,List<String>>();
+
+            listDataHeader.add("Header Value 1");
+            listDataHeader.add("Header  Value 2");
+            listDataHeader.add("Header Value 3");
+
+            List<String> headerValue1=new ArrayList<String>();
+            headerValue1.add("Header Value1 Child1");
+
+            List<String> headerValue2=new ArrayList<String>();
+            headerValue2.add("Header Value2 Child1");
+
+
+            List<String> headerValue3=new ArrayList<String>();
+            headerValue3.add("Header Value3 Child1");
+
+
+            List<String> headerValue4=new ArrayList<String>();
+            headerValue4.add("Header Value4 Child1");
+
+
+            listDataChild.put(listDataHeader.get(0),headerValue1);
+            listDataChild.put(listDataHeader.get(1),headerValue2);
+            listDataChild.put(listDataHeader.get(2),headerValue3);
+        //    listDataChild.put(listDataHeader.get(3),headerValue4);
+
+
         }
     }
 

@@ -29,7 +29,7 @@ public class Tab2 extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view=inflater.inflate(R.layout.fragment_tabbed_2,container,false);
-        TextView tabText=(TextView) view.findViewById(R.id.Bid_value_2);
+    //    TextView tabText=(TextView) view.findViewById(R.id.Bid_value_2);
 //        tabText.setText("Second TAB");
         return view;
 
