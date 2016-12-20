@@ -43,7 +43,6 @@ public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapte
             super(view);
             context=view.getContext();
             bidText = (TextView) view.findViewById(R.id.itemName);
-            thumbNail = (ImageView) view.findViewById(R.id.dropdownIcon);
             coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.coordinatorLayout);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -73,13 +72,13 @@ public class RecylcerViewAdapter extends RecyclerView.Adapter<RecylcerViewAdapte
     public void onBindViewHolder(final RecylcerViewAdapter.MyViewHolder holder, int position) {
         BidData bidData = bidDataList.get(position);
         holder.bidText.setText(bidData.getBidValue());
-        holder.thumbNail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopMenu(holder.thumbNail);
-                //Intent intent=new Intent()
-            }
-        });
+//        holder.thumbNail.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                showPopMenu(holder.thumbNail);
+//                //Intent intent=new Intent()
+//            }
+//        });
     }
 
     @Override

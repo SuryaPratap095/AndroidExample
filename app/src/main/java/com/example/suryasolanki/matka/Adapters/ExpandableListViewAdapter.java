@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -116,6 +117,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         alertDialog.setTitle("Bid Value");
         alertDialog.setMessage("Plese enter Bid Value");
         final EditText editBidText=new EditText(context);
+        editBidText.setInputType(InputType.TYPE_CLASS_PHONE);
         LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         editBidText.setLayoutParams(lp);

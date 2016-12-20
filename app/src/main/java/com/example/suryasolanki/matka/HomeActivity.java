@@ -39,19 +39,19 @@ public class HomeActivity extends AppCompatActivity {
     private void prepareBidData(){
         int thumbNail=R.mipmap.ic_launcher;
 
-        BidData bidData=new BidData("Value 1",thumbNail);
+        BidData bidData=new BidData("Value 1");
         bidDataList.add(bidData);
 
-        BidData bidData1=new BidData("Value 2",thumbNail);
+        BidData bidData1=new BidData("Value 2");
         bidDataList.add(bidData1);
 
-        BidData bidData2=new BidData("Value 3",thumbNail);
+        BidData bidData2=new BidData("Value 3");
         bidDataList.add(bidData2);
 
-        BidData bidData3=new BidData("Value 4",thumbNail);
+        BidData bidData3=new BidData("Value 4");
         bidDataList.add(bidData3);
 
-        BidData bidData4=new BidData("Value 5",thumbNail);
+        BidData bidData4=new BidData("Value 5");
         bidDataList.add(bidData4);
 
         recylcerViewAdapter.notifyDataSetChanged();

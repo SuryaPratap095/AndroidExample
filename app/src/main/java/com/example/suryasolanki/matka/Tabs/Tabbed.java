@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.suryasolanki.matka.Adapters.ExpandableListViewAdapter;
 import com.example.suryasolanki.matka.R;
@@ -84,6 +85,8 @@ public class Tabbed extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else if(id==R.id.icon_wallet){
+            Toast.makeText(this,"Wallet Clicked",Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);
@@ -144,7 +147,7 @@ public class Tabbed extends AppCompatActivity {
             listDataChild=new HashMap<String,List<String>>();
 
             listDataHeader.add("Header Value 1");
-            listDataHeader.add("Header  Value 2");
+            listDataHeader.add("Header Value 2");
             listDataHeader.add("Header Value 3");
 
             List<String> headerValue1=new ArrayList<String>();

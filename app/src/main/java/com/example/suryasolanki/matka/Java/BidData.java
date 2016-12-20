@@ -28,6 +28,10 @@ public class BidData {
         this.thumbNail = thumbNail;
     }
 
+    public BidData(String bidValue) {
+        this.bidValue = bidValue;
+    }
+
     public BidData(String bidValue, int thumbNail, int type) {
         this.bidValue = bidValue;
         this.thumbNail = thumbNail;

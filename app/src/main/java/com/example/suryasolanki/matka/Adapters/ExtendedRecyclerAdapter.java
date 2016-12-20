@@ -39,7 +39,7 @@ public class ExtendedRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
         public ExtendedViewHolder(View view) {
             super(view);
             bidText = (TextView) view.findViewById(R.id.itemName);
-            thumbNail = (ImageView) view.findViewById(R.id.dropdownIcon);
+       //     thumbNail = (ImageView) view.findViewById(R.id.dropdownIcon);
         }
     }
 
