@@ -19,11 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ExpandListActivity"></activity>
+        <activity android:name=".ExpandListActivity" />
         <activity
             android:name=".Tabs.Tabbed"
             android:label="@string/title_activity_tabbed"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".WalletActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,9 @@
 package com.example.suryasolanki.matka.Tabs;
 
+import android.app.ExpandableListActivity;
 import android.content.Context;
+import android.content.Intent;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +26,7 @@ import android.widget.Toast;
 
 import com.example.suryasolanki.matka.Adapters.ExpandableListViewAdapter;
 import com.example.suryasolanki.matka.R;
+import com.example.suryasolanki.matka.WalletActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,12 +47,13 @@ public class Tabbed extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager mViewPager;
+    private AppBarLayout  appBarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed);
-
+        
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -86,7 +91,8 @@ public class Tabbed extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }else if(id==R.id.icon_wallet){
-            Toast.makeText(this,"Wallet Clicked",Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(Tabbed.this, WalletActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

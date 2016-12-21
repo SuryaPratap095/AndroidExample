@@ -101,7 +101,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         btnValue1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                alertBidDialog();
+                alertBidDialog(view);
             }
         });
         return view;
@@ -112,25 +112,37 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
-    public void alertBidDialog(){
+    public void alertBidDialog(View view){
         alertDialog=new AlertDialog.Builder(context);
-        alertDialog.setTitle("Bid Value");
-        alertDialog.setMessage("Plese enter Bid Value");
+
+//        TextView editText=(TextView)view.findViewById(R.id.walletAmount);
+//        editText.setText("100.00");
+
+        LayoutInflater inflater=(LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View alertDialogView=inflater.inflate(R.layout.bid_layout,null);
+        alertDialog.setView(alertDialogView);
+        TextView  walletText=(TextView) alertDialogView.findViewById(R.id.walletAmount);
+        walletText.setText("100.00");
+
+
+
+         //alertDialog.setTitle("Bid Value");
+       // alertDialog.setMessage("Plese enter Bid Value");
         final EditText editBidText=new EditText(context);
         editBidText.setInputType(InputType.TYPE_CLASS_PHONE);
-        LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        editBidText.setLayoutParams(lp);
-        alertDialog.setView(editBidText);
+        //LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+          //      LinearLayout.LayoutParams.MATCH_PARENT);
+        //editBidText.setLayoutParams(lp);
+        //alertDialog.setView(editBidText);
 
-        alertDialog.setPositiveButton("YES",
+        alertDialog.setPositiveButton("Confirm Bet",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         String bidValue = editBidText.getText().toString();
-                        if (bidValue.compareTo("") == 0)
+                        if (bidValue.compareTo("") != 0)
                             {
                                 Toast.makeText(context,
-                                        "Password Matched", Toast.LENGTH_SHORT).show();
+                                        "Value"+bidValue, Toast.LENGTH_SHORT).show();
                                 Intent myIntent1 = new Intent(context,
                                         Tabbed.class);
                             } else {
@@ -140,7 +152,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
                     }
                 });
 
-        alertDialog.setNegativeButton("NO",
+        alertDialog.setNegativeButton("Cancel",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
