@@ -8,6 +8,7 @@ public class BidData {
 
     private String bidValue;
     private int thumbNail;
+    public static float amount;
 
 
     public int getType() {

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.suryasolanki.matka.Java.BidData;
 import com.example.suryasolanki.matka.R;
 import com.example.suryasolanki.matka.Tabs.Tabbed;
+
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +35,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
     private List<String>  listDataHeader;
     private HashMap<String,List<String>> listDataChild;
     private AlertDialog.Builder alertDialog;
+    private TextView bidValue;
 
     public ExpandableListViewAdapter(Context context, List<String> listDataHeader, HashMap<String, List<String>> listDataChild) {
         this.context = context;
@@ -121,9 +126,9 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         LayoutInflater inflater=(LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View alertDialogView=inflater.inflate(R.layout.bid_layout,null);
         alertDialog.setView(alertDialogView);
-        TextView  walletText=(TextView) alertDialogView.findViewById(R.id.walletAmount);
-        walletText.setText("100.00");
-
+        final TextView  walletText=(TextView) alertDialogView.findViewById(R.id.walletAmount);
+        walletText.setText(String.valueOf(String.format("%.2f",BidData.amount)));
+         bidValue=(TextView) alertDialogView.findViewById(R.id.BetAmount);
 
 
          //alertDialog.setTitle("Bid Value");
@@ -135,16 +140,23 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         //editBidText.setLayoutParams(lp);
         //alertDialog.setView(editBidText);
 
+
         alertDialog.setPositiveButton("Confirm Bet",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        String bidValue = editBidText.getText().toString();
-                        if (bidValue.compareTo("") != 0)
+
+                        String bidValues = bidValue.getText().toString();
+                        if (!TextUtils.isEmpty(bidValues))
                             {
-                                Toast.makeText(context,
-                                        "Value"+bidValue, Toast.LENGTH_SHORT).show();
-                                Intent myIntent1 = new Intent(context,
-                                        Tabbed.class);
+                                float tempWalletAmount=Float.parseFloat(walletText.getText().toString());
+                                if(Float.parseFloat(bidValues)<tempWalletAmount){
+                                    BidData.amount=tempWalletAmount-Float.parseFloat(bidValues);
+                                    Toast.makeText(context,"Bid  Placed"+ BidData.amount,Toast.LENGTH_SHORT).show();
+                                }
+                                else{
+                                    Toast.makeText(context,"Insufficent Funds",Toast.LENGTH_SHORT).show();
+                                }
+
                             } else {
                                 Toast.makeText(context,
                                         "Please enter value", Toast.LENGTH_SHORT).show();
